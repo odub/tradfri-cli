@@ -12,6 +12,7 @@ const delay      = require( 'delay' );
     console.log( "node device_changer.js", "deviceId", "--toggle")
     console.log( "node device_changer.js", "deviceId", "--color hexcolor")
     console.log( "node device_changer.js", "deviceId", "--brightness 0-100")
+    console.log( "node device_changer.js", "deviceId", "--position 0-100")
 
     process.exit(1)
   }
@@ -46,6 +47,11 @@ const delay      = require( 'delay' );
         position++;
         console.log( "Setting brightness of", currentDevice.instanceId, "to", argv[position])
         accessory.setBrightness( argv[position] )
+        break;
+      case '--position':
+        position++;
+        console.log( "Setting position of", currentDevice.instanceId, "to", argv[position])
+        accessory.setPosition(argv[position])
         break;
       default:
         currentDevice = devices.findDevice( tradfri, argv[position] )
