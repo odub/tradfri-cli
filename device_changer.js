@@ -74,6 +74,10 @@ const delay      = require( 'delay' );
             accessory = currentDevice.plugList[0]
             accessory.client = tradfri
             break;
+          case 7: //blind
+            accessory = currentDevice.blindList[0]
+            accessory.client = tradfri
+            break;
         }
         break;
     }
